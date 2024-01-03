@@ -22,7 +22,7 @@ void EnableTimerInterrupt_ms(TIM_e timer, uint32_t ms)
         TR0 = 1;
         break;
     case TIM1:
-        TMOD |= 0x10;
+        TMOD |= 0x01;
         TL1 = temp;
         TH1 = temp >> 8;
         ET1 = 1;

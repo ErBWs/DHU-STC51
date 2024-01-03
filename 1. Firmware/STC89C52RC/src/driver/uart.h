@@ -18,7 +18,7 @@ extern "C"
 
 void UART_Init();
 void UART_SendChar(uint8_t dat);
-void UART_SendStr(uint8_t *str);
+void UART_SendStr(const char *str);
 
 #ifdef __cplusplus
 }

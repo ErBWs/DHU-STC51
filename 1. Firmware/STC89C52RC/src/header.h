@@ -21,7 +21,9 @@ extern "C"
 #include "driver/interrupt.h"
 
 // Bsp
-#include "bsp/3461AS.h"
+#include "bsp/as3461.h"
+#include "bsp/keyboard.h"
+#include "bsp/ds18b20.h"
 
 #ifdef __cplusplus
 }

@@ -1,12 +1,12 @@
 /*!
- * Copyright (c) 2023, ErBW_s
+ * Copyright (c) 2024, ErBW_s
  * All rights reserved.
  * 
  * @author  Baohan
  */
 
-#ifndef _DELAY_H
-#define _DELAY_H
+#ifndef KEYBOARD_H
+#define KEYBOARD_H
 
 #ifdef __cplusplus
 extern "C"
@@ -15,10 +15,10 @@ extern "C"
 
 #include <stdint.h>
 #include "mcs51/8052.h"
-#include "interrupt.h"
 
-void SoftDelay_ms(uint32_t ms);
-void SoftDelay_us(uint32_t us);
+#define KEYBOARD_PORT   P1
+
+uint8_t KeyboardScan();
 
 #ifdef __cplusplus
 }

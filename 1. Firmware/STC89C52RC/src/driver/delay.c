@@ -7,15 +7,22 @@
 
 #include "delay.h"
 
-/*!
- * @brief   Soft delay with unit 11.0592MHz xtal
- *
- * @param   n   Delay time
- * @return  none
- */
-void SoftDelay_ms(uint32_t n)
+
+void SoftDelay_ms(uint32_t ms)
 {
-    uint32_t i, y;
-    for (i = n; i > 0; i--)
-        for (y = 114; y > 0; y--);
+    uint16_t i;
+    do {
+        i = SYS_CLOCK / 6000 + 1;
+        while(--i);
+    }while(--ms);
+}
+
+
+void SoftDelay_us(uint32_t us)
+{
+    uint16_t i;
+    do {
+        i = SYS_CLOCK / 7000000 + 1;
+        while(--i);
+    }while(--us);
 }

@@ -5,8 +5,8 @@
  * @author  Baohan
  */
 
-#ifndef THERMOMETER_LCD1602_H
-#define THERMOMETER_LCD1602_H
+#ifndef AS3461_H
+#define AS3461_H
 
 #ifdef __cplusplus
 extern "C"
@@ -18,10 +18,11 @@ extern "C"
 #include "driver/delay.h"
 
 // Macros
-#define LCD1602_RW      P2_5    // Read/write selection
-#define LCD1602_RS      P2_6    // Register selection
-#define LCD1602_E       P2_7    // Enable
-#define LCD1602_PORT    P0
+#define AS3461_SEL      P2
+#define AS3461_SEG      P0
+
+extern uint8_t digitCode[10];
+void AS3461_Display(const uint8_t *dat);
 
 #ifdef __cplusplus
 }

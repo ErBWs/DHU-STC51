@@ -1,63 +1,36 @@
 #include "mcs51/8052.h"
 #include "header.h"
 
-uint8_t i = 0x80;
+volatile uint8_t temp[8] = {0, 53, 125, 45, 57, 81, 67, 101};
+volatile uint8_t tempData[8] = {0x00};
+uint16_t total = 0;
+uint8_t keyTmp = 0, key = 0;
+uint8_t str[10] = "CH0: 00.0";
+
 int main()
 {
-    uint8_t modeFlag = 0;
+    ds18b20_init();
     UART_Init();
-    uint8_t str[6] = "nihao";
-//    EnableTimerInterrupt_ms(TIM0, 10);
+    EnableTimerInterrupt_ms(TIM0, 10);
 
     while (1)
     {
-        P1_7 = 0;
-        if (P1_3 == 0)
-           modeFlag = 1;    // Led
-        if (P1_2 == 0)
-            modeFlag = 2;   // Buzzer
-        if (P1_1 == 0)
-            modeFlag = 3;   // Digital
-        if (P1_0 == 0)
-            modeFlag = 0;
+        keyTmp = KeyboardScan();
+        tempData[0] = digitCode[key] | 0x80;
+        tempData[5] = digitCode[temp[key - 1] % 1000 / 100];
+        tempData[6] = digitCode[temp[key - 1] % 1000 % 100 / 10] | 0x80;
+        tempData[7] = digitCode[temp[key - 1] % 1000 % 100 % 10];
 
-        switch (modeFlag)
-        {
-        case 1:
+        str[2] = key + 48;
+        str[5] = temp[key - 1] % 1000 / 100 + 48;
+        str[6] = temp[key - 1] % 1000 % 100 / 10 + 48;
+        str[8] = temp[key - 1] % 1000 % 100 % 10 + 48;
 
-            UART_SendStr(str);
-            P2 = ~i;
-            SoftDelay_ms(100);
-            i >>= 1;
-            if (i == 0)
-                i = 0x80;
-            break;
-        case 2:
-            P2_5 = 0;
-            SoftDelay_ms(1);
-            P2_5 = 1;
-            break;
-        case 3:
-            P2 = 0x00;
-            P0 = 0x66;
-            SoftDelay_ms(1);
-            P2 = 0x04;
-            P0 = 0x4f;
-            SoftDelay_ms(1);
-            P2 = 0x08;
-            P0 = 0x5b;
-            SoftDelay_ms(1);
-            P2 = 0x0c;
-            P0 = 0x06;
-            SoftDelay_ms(1);
-            break;
-        default:
-            break;
-        }
+        UART_SendStr((const char *)str);
+        AS3461_Display(tempData);
 
-//        P2_0 = 0;
-//        P0 = 0x39; C
-//        P0 = 0x63; o
+        if (keyTmp != 0)
+            key = keyTmp;
     }
 
     return 0;
