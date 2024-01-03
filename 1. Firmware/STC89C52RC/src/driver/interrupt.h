@@ -16,6 +16,8 @@ extern "C"
 #include <stdint.h>
 #include "mcs51/8052.h"
 
+#define SYS_CLOCK    11059200
+
 typedef enum
 {
     TIM0,

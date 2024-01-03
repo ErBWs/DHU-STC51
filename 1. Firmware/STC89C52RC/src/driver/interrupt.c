@@ -7,8 +7,6 @@
 
 #include "interrupt.h"
 
-#define SYS_CLOCK    11059200
-
 void EnableTimerInterrupt_ms(TIM_e timer, uint32_t ms)
 {
     uint16_t temp;

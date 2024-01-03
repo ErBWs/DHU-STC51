@@ -17,10 +17,11 @@ extern "C"
 
 // Driver
 #include "driver/delay.h"
+#include "driver/uart.h"
 #include "driver/interrupt.h"
 
 // Bsp
-#include "bsp/lcd1602.h"
+#include "bsp/3461AS.h"
 
 #ifdef __cplusplus
 }

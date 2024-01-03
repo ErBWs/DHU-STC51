@@ -5,6 +5,8 @@ uint8_t i = 0x80;
 int main()
 {
     uint8_t modeFlag = 0;
+    UART_Init();
+    uint8_t str[6] = "nihao";
 //    EnableTimerInterrupt_ms(TIM0, 10);
 
     while (1)
@@ -22,6 +24,8 @@ int main()
         switch (modeFlag)
         {
         case 1:
+
+            UART_SendStr(str);
             P2 = ~i;
             SoftDelay_ms(100);
             i >>= 1;
