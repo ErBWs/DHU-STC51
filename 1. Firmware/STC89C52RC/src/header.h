@@ -24,6 +24,7 @@ extern "C"
 #include "bsp/as3461.h"
 #include "bsp/keyboard.h"
 #include "bsp/ds18b20.h"
+#include "bsp/lcd1602.h"
 
 #ifdef __cplusplus
 }

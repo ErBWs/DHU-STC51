@@ -19,7 +19,7 @@ void TIM0_isr() __interrupt(1)
         return;
 
     j = 15;
-    total += ds18b20_read_temperture() * 10;//保留温度值小数后一位
+    total += (uint16_t) (ds18b20_read_temperture() * 10);
     i++;
 
     if (i == 7)
