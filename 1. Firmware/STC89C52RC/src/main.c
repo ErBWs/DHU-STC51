@@ -10,7 +10,7 @@ uint8_t str[10] = "CH0: 00.0";
 int main()
 {
     ds18b20_init();
-//    UART_Init();
+    UART_Init();
     LCD1602_Init();
     EnableTimerInterrupt_ms(TIM0, 10);
 
