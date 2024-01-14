@@ -5,8 +5,8 @@
  * @author  Baohan
  */
 
-#ifndef THERMOMETER_HEADER_H
-#define THERMOMETER_HEADER_H
+#ifndef HEADER_H
+#define HEADER_H
 
 #ifdef __cplusplus
 extern "C"

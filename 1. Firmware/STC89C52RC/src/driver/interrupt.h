@@ -5,8 +5,8 @@
  * @author  Baohan
  */
 
-#ifndef THERMOMETER_INTERRUPT_H
-#define THERMOMETER_INTERRUPT_H
+#ifndef INTERRUPT_H
+#define INTERRUPT_H
 
 #ifdef __cplusplus
 extern "C"

@@ -5,8 +5,8 @@
  * @author  Baohan
  */
 
-#ifndef STC89C52RC_UART_H
-#define STC89C52RC_UART_H
+#ifndef UART_H
+#define UART_H
 
 #ifdef __cplusplus
 extern "C"

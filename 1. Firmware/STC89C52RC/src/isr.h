@@ -5,8 +5,8 @@
  * @author  Baohan
  */
 
-#ifndef THERMOMETER_ISR_H
-#define THERMOMETER_ISR_H
+#ifndef ISR_H
+#define ISR_H
 
 #ifdef __cplusplus
 extern "C"
