@@ -16,9 +16,12 @@ extern "C"
 #include <stdint.h>
 #include "mcs51/8052.h"
 
-#define KEYBOARD_PORT   P1
+#define BUTTON_UP           P1_3
+#define BUTTON_DOWN         P1_4
+#define BUTTON_DISPLAY      P1_5
+#define BUTTON_SWITCH       P1_6
 
-uint8_t KeyboardScan();
+void key_scan(void);
 
 #ifdef __cplusplus
 }

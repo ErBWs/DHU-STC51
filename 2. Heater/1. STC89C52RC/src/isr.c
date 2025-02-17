@@ -7,8 +7,9 @@
 
 #include "isr.h"
 
-extern volatile uint8_t temp[8];
+extern volatile uint8_t temp[3];
 extern uint16_t total;
+extern uint8_t adc;
 uint8_t j = 15, i = 0;
 
 void TIM0_isr() __interrupt(1)
@@ -19,6 +20,7 @@ void TIM0_isr() __interrupt(1)
 
     j = 15;
     total += (uint16_t) (ds18b20_read_temperture() * 10);
+    adc = adc_read_data(0);
     i++;
 
     if (i == 8)
