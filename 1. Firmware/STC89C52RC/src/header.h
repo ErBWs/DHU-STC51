@@ -14,6 +14,7 @@ extern "C"
 #endif
 
 #include "isr.h"
+#include "mcs51/8052.h"
 
 // Driver
 #include "driver/delay.h"
