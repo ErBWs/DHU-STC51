@@ -1,5 +1,4 @@
 #include "header.h"
-#include "math.h"
 
 volatile uint16_t temp[3] = {0, 250, 0}; //current, set, ds18, 250 => 25.0
 bool heating_switch = false;
